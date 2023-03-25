@@ -16,7 +16,7 @@ const Notes = () => {
       title,
       note,
     };
-    fetch("http://localhost:8003/notes/create", {
+    fetch("https://tan-long-cod.cyclic.app/notes/create", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
@@ -31,7 +31,7 @@ const Notes = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:8003/notes", {
+    fetch("https://tan-long-cod.cyclic.app/notes", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("psctoken")}`,
       },
@@ -49,7 +49,7 @@ const Notes = () => {
   }, []);
 
   const handleDelete = (noteID) => {
-    fetch(`http://localhost:8003/notes/delete/${noteID}`, {
+    fetch(`https://tan-long-cod.cyclic.app/notes/delete/${noteID}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("psctoken")}`,

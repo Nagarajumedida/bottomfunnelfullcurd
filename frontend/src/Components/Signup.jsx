@@ -14,7 +14,7 @@ const Signup = () => {
       email,
       password,
     };
-    fetch("http://localhost:8003/signup",{
+    fetch("https://tan-long-cod.cyclic.app/signup",{
         method:"POST",
         body:JSON.stringify(payload),
         headers:{

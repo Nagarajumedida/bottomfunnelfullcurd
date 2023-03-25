@@ -13,7 +13,7 @@ const Login = () => {
       email,
       password,
     };
-    fetch("http://localhost:8003/login",{
+    fetch("https://tan-long-cod.cyclic.app/login",{
         method:"POST",
         body:JSON.stringify(payload),
         headers:{
