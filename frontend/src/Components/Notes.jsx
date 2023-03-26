@@ -98,6 +98,8 @@ const Notes = () => {
               <p>{e.title}</p>
               <p>{e.note}</p>
               <Button onClick={()=>handleDelete(e._id)}>Delete</Button>
+              <Button >Update</Button>
+
            </div>
        
           );
