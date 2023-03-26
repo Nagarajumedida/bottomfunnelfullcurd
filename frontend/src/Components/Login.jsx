@@ -13,7 +13,7 @@ const Login = () => {
       email,
       password,
     };
-    fetch("https://tan-long-cod.cyclic.app/login",{
+    fetch("https://hilarious-poncho-lion.cyclic.app/login",{
         method:"POST",
         body:JSON.stringify(payload),
         headers:{

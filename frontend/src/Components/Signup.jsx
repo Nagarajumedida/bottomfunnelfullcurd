@@ -14,7 +14,7 @@ const Signup = () => {
       email,
       password,
     };
-    fetch("https://tan-long-cod.cyclic.app/signup",{
+    fetch("https://hilarious-poncho-lion.cyclic.app/signup",{
         method:"POST",
         body:JSON.stringify(payload),
         headers:{

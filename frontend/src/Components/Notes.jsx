@@ -16,7 +16,7 @@ const Notes = () => {
       title,
       note,
     };
-    fetch("https://tan-long-cod.cyclic.app/notes/create", {
+    fetch("https://hilarious-poncho-lion.cyclic.app/notes/create", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
@@ -25,13 +25,16 @@ const Notes = () => {
       },
     })
       .then((res) => res.json())
-      .then((res) => console.log(res))
+      .then((res) => console.log(res),
+      setNotes(notes)
+
+    )
       .catch((error) => console.log(error));
   };
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://tan-long-cod.cyclic.app/notes", {
+    fetch("https://hilarious-poncho-lion.cyclic.app/notes", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("psctoken")}`,
       },
@@ -41,20 +44,25 @@ const Notes = () => {
         console.log(res);
         setNotes(res);
         setLoading(false);
+
       })
       .catch((error) => {
         setError(true);
         setLoading(false);
+
       });
+      
   }, []);
 
   const handleDelete = (noteID) => {
-    fetch(`https://tan-long-cod.cyclic.app/notes/delete/${noteID}`, {
+    fetch(`https://hilarious-poncho-lion.cyclic.app/notes/delete/${noteID}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("psctoken")}`,
       },
+     
     });
+   
   };
 
   return (
@@ -86,14 +94,11 @@ const Notes = () => {
         notes.length > 0 &&
         notes.map((e) => {
           return (
-            <Box p="10" d="flex">
-              <h1>{e.title}</h1>
-              <h4>{e.note}</h4>
-              <Button onClick={() => handleDelete(e._id)}>DELETE</Button>
-              <Button >UPDATE</Button>
-
-              <hr />
-            </Box>
+           <div>
+              <p>{e.title}</p>
+              <p>{e.note}</p>
+              <Button onClick={()=>handleDelete(e._id)}>Delete</Button>
+           </div>
        
           );
         })}
